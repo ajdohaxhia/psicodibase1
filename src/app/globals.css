@@ -1,0 +1,417 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================
+   PSICOLOGO DI BASE - Premium Design System
+   Colors derived from the official logo
+   ============================================ */
+
+@theme inline {
+  /* Colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-crimson);
+  --font-mono: var(--font-geist-mono);
+  
+  /* Sidebar */
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  
+  /* Charts */
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  
+  /* Core */
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  
+  /* Radius */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  /* Base Radius */
+  --radius: 0.5rem;
+  
+  /* ============================================
+     LIGHT MODE - Colors from Logo
+     Logo colors: Dark teal, Sage green, Tan/orange
+     ============================================ */
+  
+  /* Backgrounds - Warm off-white matching logo background */
+  --background: #F5F5F0;
+  --foreground: #2D4F4F;
+  
+  --card: #FFFFFF;
+  --card-foreground: #2D4F4F;
+  
+  --popover: #FFFFFF;
+  --popover-foreground: #2D4F4F;
+  
+  /* Primary - Dark teal from logo */
+  --primary: #2D4F4F;
+  --primary-foreground: #F5F5F0;
+  
+  /* Secondary - Light sage green tint */
+  --secondary: #E8F0EA;
+  --secondary-foreground: #2D4F4F;
+  
+  /* Muted - Soft sage */
+  --muted: #E5EDE7;
+  --muted-foreground: #5A7A6A;
+  
+  /* Accent - Tan/orange from logo */
+  --accent: #D4A574;
+  --accent-foreground: #FFFFFF;
+  
+  /* Destructive */
+  --destructive: #C4746A;
+  
+  /* Borders & Inputs */
+  --border: #D4DCD6;
+  --input: #D4DCD6;
+  --ring: #A5C4B0;
+  
+  /* Sidebar */
+  --sidebar: #F5F5F0;
+  --sidebar-foreground: #2D4F4F;
+  --sidebar-primary: #2D4F4F;
+  --sidebar-primary-foreground: #F5F5F0;
+  --sidebar-accent: #E8F0EA;
+  --sidebar-accent-foreground: #2D4F4F;
+  --sidebar-border: #D4DCD6;
+  --sidebar-ring: #A5C4B0;
+  
+  /* Charts - Using logo palette */
+  --chart-1: #D4A574;
+  --chart-2: #7A9BB7;
+  --chart-3: #A5C4B0;
+  --chart-4: #2D4F4F;
+  --chart-5: #5A7A6A;
+}
+
+.dark {
+  /* ============================================
+     DARK MODE - Derived from logo palette
+     ============================================ */
+  
+  --background: #1A2F2F;
+  --foreground: #F5F5F0;
+  
+  --card: #243838;
+  --card-foreground: #F5F5F0;
+  
+  --popover: #243838;
+  --popover-foreground: #F5F5F0;
+  
+  --primary: #A5C4B0;
+  --primary-foreground: #1A2F2F;
+  
+  --secondary: #2D4F4F;
+  --secondary-foreground: #F5F5F0;
+  
+  --muted: #2D4F4F;
+  --muted-foreground: #A5C4B0;
+  
+  --accent: #D4A574;
+  --accent-foreground: #1A2F2F;
+  
+  --destructive: #D4887A;
+  
+  --border: #3D5F5F;
+  --input: #3D5F5F;
+  --ring: #A5C4B0;
+  
+  --sidebar: #1A2F2F;
+  --sidebar-foreground: #F5F5F0;
+  --sidebar-primary: #A5C4B0;
+  --sidebar-primary-foreground: #1A2F2F;
+  --sidebar-accent: #2D4F4F;
+  --sidebar-accent-foreground: #F5F5F0;
+  --sidebar-border: #3D5F5F;
+  --sidebar-ring: #A5C4B0;
+  
+  --chart-1: #D4A574;
+  --chart-2: #7A9BB7;
+  --chart-3: #A5C4B0;
+  --chart-4: #A5C4D4;
+  --chart-5: #5A7A6A;
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Refined focus states */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
+  
+  /* Selection styling */
+  ::selection {
+    background-color: rgba(212, 165, 116, 0.25);
+    color: inherit;
+  }
+}
+
+/* ============================================
+   TYPOGRAPHY UTILITIES
+   ============================================ */
+
+@layer utilities {
+  /* Editorial headline styling */
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  
+  /* Refined text colors */
+  .text-warm {
+    color: #5A7A6A;
+  }
+  
+  .text-deep {
+    color: #2D4F4F;
+  }
+  
+  /* Subtle text shadow for depth */
+  .text-subtle-shadow {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+}
+
+/* ============================================
+   CUSTOM ANIMATIONS
+   ============================================ */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Animation utilities */
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.5s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.5s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Stagger delays */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+
+/* ============================================
+   CUSTOM SCROLLBAR
+   ============================================ */
+
+/* Webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #A5C4B0;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7A9BB7;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #A5C4B0 transparent;
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================
+   CONTAINER UTILITIES
+   ============================================ */
+
+.container-narrow {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.container-wide {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .container-narrow,
+  .container-wide {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-narrow,
+  .container-wide {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+/* ============================================
+   SECTION SPACING
+   ============================================ */
+
+.section-spacing {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .section-spacing {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-spacing {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+}
